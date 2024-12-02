@@ -1,0 +1,28 @@
+services:
+  otus-cp-php:
+    container_name: otus-cp-php
+    image: otus-php
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - .:/var/www/html
+    networks:
+      - otusnet
+
+  otus-cp-nginx:
+    image: nginx:alpine
+    container_name: otus-cp-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+      - ./docker/nginx/conf/:/etc/nginx/conf.d/
+    networks:
+      - otusnet
+
+networks:
+  otusnet:
+    driver: bridge

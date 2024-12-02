@@ -1,0 +1,17 @@
+{
+  "name": "petrova-a/verify-email",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "PetrovaA\\VerifyEmail\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Yellow Green"
+    }
+  ],
+  "require": {
+    "php": ">8.0"
+  }
+}
